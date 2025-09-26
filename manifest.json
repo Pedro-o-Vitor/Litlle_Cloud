@@ -2,7 +2,7 @@
   "name": "Little Cloud Edutainment",
   "short_name": "Little Cloud",
   "description": "Um site de edutainment sobre computação em nuvem para crianças.",
-  "start_url": "/edutaiment-Litlle_cloud/index.html",
+  "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#4285f4",

@@ -13,15 +13,35 @@ const urlsToCache = [
   '/conectarfios.html',
   '/cadastro.html',
   '/style.css',
-    '/tailwind.css',
-  '/cadastro.html',
-  '/arrastaresoltar.html'
+  '/tailwind.css',
+  '/script.js',
+  '/gamenuvem.js',
+  '/musicadefundo.mp3',
+  '/littlecloud (2).png',
+  '/icon-192x192.png',
+  '/icon-512x512.png',
+  '/manifest.json',
+  '/register-sw.js'
 ];
 
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
-      return cache.addAll([...new Set(urlsToCache)]); // remove duplicados
+      return cache.addAll(urlsToCache);
+    })
+  );
+});
+
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys().then(cacheNames => {
+      return Promise.all(
+        cacheNames.map(cacheName => {
+          if (cacheName !== CACHE_NAME) {
+            return caches.delete(cacheName);
+          }
+        })
+      );
     })
   );
 });
