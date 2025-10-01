@@ -40,13 +40,14 @@ body {
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 2rem;
+            padding: clamp(1rem, 4vw, 2rem);
             position: relative;
             background: white;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             max-width: 90%;
-            width: 500px;
+            width: 100%;
+            max-width: 500px;
             box-sizing: border-box;
             transform: scale(0.9);
             opacity: 0;
@@ -72,8 +73,8 @@ body {
 
         button.btn {
             margin: 0.75rem;
-            padding: 0.8rem 1.8rem;
-            font-size: 1rem;
+            padding: clamp(0.6rem, 2vw, 0.8rem) clamp(1.2rem, 4vw, 1.8rem);
+            font-size: clamp(0.9rem, 3vw, 1rem);
             font-weight: 600;
             border: none;
             border-radius: 12px;
@@ -106,12 +107,14 @@ body {
         }
 
         input {
-            width: 80%;
-            padding: 0.8rem;
+            width: 100%;
+            max-width: 80%;
+            padding: clamp(0.6rem, 2vw, 0.8rem);
             border: 1px solid #cbd5e1;
             border-radius: 8px;
             margin-bottom: 0.5rem;
-            font-size: 1rem;
+            font-size: clamp(0.9rem, 3vw, 1rem);
+            box-sizing: border-box;
         }
 
         .feedback {
@@ -124,9 +127,9 @@ body {
 
         .mascote {
             position: absolute;
-            bottom: 20px;
-            right: 20px;
-            width: 120px;
+            bottom: clamp(10px, 5vh, 20px);
+            right: clamp(10px, 5vh, 20px);
+            width: clamp(80px, 15vw, 120px);
             transition: 0.3s;
         }
 
@@ -162,8 +165,8 @@ body {
         }
 
         #dragdrop #files img {
-            width: 60px;
-            margin: 1rem;
+            width: clamp(40px, 10vw, 60px);
+            margin: clamp(0.5rem, 2vw, 1rem);
             cursor: grab;
             transition: transform 0.2s;
         }
@@ -172,13 +175,13 @@ body {
         }
 
         #dragdrop #cloud-target {
-            width: 150px;
-            height: 100px;
+            width: clamp(100px, 20vw, 150px);
+            height: clamp(60px, 12vw, 100px);
             background-image: url('img/cloud.png'); /* Caminho para a imagem da nuvem */
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
-            margin: 2rem 0;
+            margin: clamp(1rem, 4vw, 2rem) 0;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -194,13 +197,15 @@ body {
         .circuit-container {
             display: flex;
             align-items: center;
-            margin: 2rem 0;
+            margin: clamp(1rem, 4vw, 2rem) 0;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .cable {
-            width: 30px;
-            height: 150px;
-            margin: 0 1rem;
+            width: clamp(20px, 5vw, 30px);
+            height: clamp(100px, 20vh, 150px);
+            margin: 0 clamp(0.5rem, 2vw, 1rem);
             border-radius: 15px;
             transition: transform 0.3s ease-in-out, background-color 0.3s;
             cursor: pointer;
@@ -217,27 +222,98 @@ body {
         #locks #clouds-container, #locks #locks-container {
             display: flex;
             justify-content: center;
-            margin: 2rem 0;
+            margin: clamp(1rem, 4vw, 2rem) 0;
+            flex-wrap: wrap;
         }
         
         #locks .cloud-item, #locks .lock-item {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin: 0 1rem;
+            margin: 0 clamp(0.5rem, 2vw, 1rem);
         }
 
         #locks .cloud-item img, #locks .lock-item img {
-            width: 80px;
+            width: clamp(50px, 12vw, 80px);
         }
 
         #locks .lock-item img {
             cursor: grab;
         }
 
-        body {
+body {
   background-image: url('layout.png');
   background-size: cover;      /* Faz a imagem cobrir toda a tela */
   background-position: center; /* Centraliza a imagem */
   background-repeat: no-repeat;/* Evita repetição */
+}
+
+/* Responsive Media Queries */
+@media (max-width: 600px) {
+    .container {
+        padding: 1rem;
+        margin: 1rem;
+    }
+    
+    .screen {
+        padding: 1rem;
+        margin: 0.5rem;
+        border-radius: 15px;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    button.btn {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+    
+    input {
+        width: 100%;
+    }
+    
+    .mascote {
+        width: 80px;
+        bottom: 10px;
+        right: 10px;
+    }
+    
+    .game-container {
+        padding: 1rem;
+    }
+    
+    #dragdrop #cloud-target {
+        width: 100px;
+        height: 60px;
+        margin: 1rem 0;
+    }
+    
+    .cable {
+        height: 100px;
+        margin: 0 0.5rem;
+    }
+    
+    #locks .cloud-item img, #locks .lock-item img {
+        width: 50px;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+    .screen {
+        max-width: 80%;
+    }
+    
+    .cable {
+        height: 120px;
+    }
+    
+    #locks .cloud-item img, #locks .lock-item img {
+        width: 60px;
+    }
+}
+
+@media (min-width: 901px) {
+    /* Desktop optimizations if needed */
 }

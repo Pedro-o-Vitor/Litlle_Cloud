@@ -25,8 +25,8 @@
 
     h1 {
         color: #fff;
-        font-size: 3rem;
-        margin-bottom: 2rem;
+        font-size: clamp(2rem, 6vw, 3rem);
+        margin-bottom: clamp(1rem, 4vw, 2rem);
         text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
     }
 
@@ -34,10 +34,10 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(2, 1fr);
-        gap: 2rem;
-        width: 90%;
+        gap: clamp(1rem, 4vw, 2rem);
+        width: 95%;
         max-width: 900px;
-        margin-top: 5vh; /* desloca os cards um pouco para baixo */
+        margin-top: clamp(3vh, 5vh, 8vh);
         justify-items: center;
         align-items: center;
     }
@@ -50,6 +50,7 @@
         transition: transform 0.3s, box-shadow 0.3s;
         width: 100%;
         max-width: 400px;
+        aspect-ratio: 1;
     }
 
     .game-card:hover {
@@ -59,7 +60,7 @@
 
     .game-card img {
         width: 100%;
-        height: 200px;
+        height: 100%;
         object-fit: cover;
         display: block;
         border-radius: 25px;
@@ -67,25 +68,25 @@
 
     .game-card p {
         position: absolute;
-        bottom: 10px;
+        bottom: clamp(5px, 2vh, 10px);
         left: 50%;
         transform: translateX(-50%);
         margin: 0;
         font-weight: bold;
-        font-size: 1.4rem;
+        font-size: clamp(1rem, 3vw, 1.4rem);
         color: #fff;
         text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
         background: rgba(0,0,0,0.2);
-        padding: 0.3rem 0.8rem;
+        padding: clamp(0.2rem, 1vw, 0.3rem) clamp(0.5rem, 2vw, 0.8rem);
         border-radius: 10px;
     }
 
     .back-button {
         position: absolute;
-        top: 20px;
-        left: 20px;
-        width: 60px;
-        height: 60px;
+        top: clamp(10px, 2vh, 20px);
+        left: clamp(10px, 2vh, 20px);
+        width: clamp(50px, 8vw, 60px);
+        height: clamp(50px, 8vw, 60px);
         border-radius: 50%;
         background: #fff;
         display: flex;
@@ -101,8 +102,58 @@
     }
 
     .back-button-icon {
-        font-size: 2rem;
+        font-size: clamp(1.5rem, 3vw, 2rem);
         color: #8862d8;
+    }
+
+    /* Responsive Media Queries for Jogos.html */
+    @media (max-width: 600px) {
+        body {
+            padding: 1rem;
+        }
+        
+        .games-container {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            width: 95%;
+            margin-top: 3vh;
+        }
+        
+        .game-card {
+            max-width: 100%;
+        }
+        
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .back-button {
+            width: 50px;
+            height: 50px;
+            top: 10px;
+            left: 10px;
+        }
+        
+        .back-button-icon {
+            font-size: 1.5rem;
+        }
+        
+        .game-card p {
+            font-size: 1rem;
+            padding: 0.2rem 0.5rem;
+        }
+    }
+
+    @media (min-width: 601px) and (max-width: 900px) {
+        .games-container {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+        }
     }
 </style>
 </head>
@@ -134,3 +185,51 @@
 <script src="./register-sw.js"></script>
 </body>
 </html>
+
+<style>
+/* Responsive Media Queries for Jogos.html */
+@media (max-width: 600px) {
+    .games-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        width: 95%;
+        margin-top: 3vh;
+    }
+    
+    .game-card {
+        max-width: 100%;
+    }
+    
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .back-button {
+        width: 50px;
+        height: 50px;
+        top: 10px;
+        left: 10px;
+    }
+    
+    .back-button-icon {
+        font-size: 1.5rem;
+    }
+    
+    .game-card p {
+        font-size: 1rem;
+        padding: 0.2rem 0.5rem;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+    .games-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+}
+</style>

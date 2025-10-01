@@ -9,12 +9,12 @@
 <style>
   body { margin:0; padding:0; font-family:'Fredoka', sans-serif; background: linear-gradient(135deg, #fbc2eb, #a6c0fe);
          display:flex; justify-content:center; align-items:center; min-height:100vh; }
-  .container { background: rgba(255,255,255,0.9); padding:2rem; border-radius:25px; text-align:center; width:90%; max-width:400px; box-shadow:0 8px 20px rgba(0,0,0,0.25);}
-  input, button { width: 80%; padding:0.8rem; margin:0.5rem 0; border-radius:15px; border:none; }
-  input { border:3px solid #f2e2ff; background-color:#f8f0ff; text-align:center; font-size:1rem; }
-  button { background: linear-gradient(135deg, #a6c0fe, #fbc2eb); color:white; font-weight:bold; cursor:pointer; }
+  .container { background: rgba(255,255,255,0.9); padding:clamp(1.5rem, 5vw, 2rem); border-radius:25px; text-align:center; width:95%; max-width:400px; box-shadow:0 8px 20px rgba(0,0,0,0.25); box-sizing: border-box;}
+  input, button { width: 100%; max-width: 80%; padding:clamp(0.6rem, 2vw, 0.8rem); margin:0.5rem 0; border-radius:15px; border:none; box-sizing: border-box; }
+  input { border:3px solid #f2e2ff; background-color:#f8f0ff; text-align:center; font-size:clamp(0.9rem, 3vw, 1rem); }
+  button { background: linear-gradient(135deg, #a6c0fe, #fbc2eb); color:white; font-weight:bold; cursor:pointer; font-size:clamp(0.9rem, 3vw, 1rem); }
   button:hover { transform: scale(1.05); }
-  #feedback { color:#ff5252; margin-top:10px; font-weight:bold; }
+  #feedback { color:#ff5252; margin-top:10px; font-weight:bold; font-size:clamp(0.9rem, 3vw, 1rem); }
 </style>
 </head>
 <body>
@@ -60,3 +60,34 @@
 <script src="./register-sw.js"></script>
 </body>
 </html>
+
+<style>
+/* Responsive Media Queries for cadastro.html */
+@media (max-width: 600px) {
+    .container {
+        padding: 1.5rem;
+        margin: 1rem;
+        max-width: 95vw;
+    }
+    
+    input, button {
+        width: 100%;
+        padding: 0.6rem;
+        font-size: 0.9rem;
+    }
+    
+    button {
+        font-size: 0.9rem;
+    }
+    
+    #feedback {
+        font-size: 0.9rem;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+    .container {
+        max-width: 80vw;
+    }
+}
+</style>

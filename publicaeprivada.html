@@ -16,7 +16,7 @@
     align-items: center;
     background: linear-gradient(135deg, #e0eafc, #c9d6ff);
     margin: 0;
-    padding: 30px;
+    padding: clamp(1rem, 5vw, 30px);
     height: 100vh;
     box-sizing: border-box;
     overflow: hidden;
@@ -33,28 +33,30 @@
       "gif1 gif2";
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto auto;
-    gap: 20px;
-    width: 80%;
+    gap: clamp(1rem, 4vw, 20px);
+    width: 95%;
     max-width: 900px;
     position: relative;
     border-radius: 20px;
-    padding: 20px;
+    padding: clamp(1rem, 4vw, 20px);
     background-color: rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(10px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
   }
 
   #items-container {
     grid-area: items-container;
     display: flex;
     justify-content: center;
-    gap: 40px;
-    margin-bottom: 20px;
+    gap: clamp(2rem, 8vw, 40px);
+    margin-bottom: clamp(1rem, 4vw, 20px);
+    flex-wrap: wrap;
   }
 
   .item {
-    width: 80px;
-    height: 80px;
+    width: clamp(60px, 10vw, 80px);
+    height: clamp(60px, 10vw, 80px);
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -71,7 +73,7 @@
 
   .cloud {
     width: 100%;
-    height: 150px;
+    height: clamp(120px, 20vw, 150px);
     position: relative;
     background-size: contain;
     background-position: center;
@@ -84,33 +86,33 @@
     transition: box-shadow 0.3s ease-in-out;
   }
 
-  .gif-container { display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .gif-container { display: flex; justify-content: center; align-items: center; gap: clamp(0.5rem, 2vw, 10px); flex-wrap: wrap; }
   .gif1 { grid-area: gif1; }
   .gif2 { grid-area: gif2; }
-  .gif-container img { width: 150px; height: auto; display: none; }
+  .gif-container img { width: clamp(100px, 20vw, 150px); height: auto; display: none; }
 
   .back-button:hover, #restart-button:hover { transform: translateY(-3px); box-shadow: 0 6px 15px rgba(0,0,0,0.3); }
-  .back-button { left: 20px; }
-  #restart-button { right: 20px; }
+  .back-button { left: clamp(10px, 2vh, 20px); }
+  #restart-button { right: clamp(10px, 2vh, 20px); }
 
   .next-button, #restart-button, .back-button {
     position: fixed;
-    width: 70px;
-    height: 70px;
+    width: clamp(50px, 8vw, 70px);
+    height: clamp(50px, 8vw, 70px);
     border-radius: 50%;
     border: none;
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(0,0,0,0.4);
     z-index: 20;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 3vw, 2rem);
     color: white;
     font-weight: bold;
-    border: 4px solid #fff;
+    border: clamp(2px, 0.5vw, 4px) solid #fff;
   }
-  .next-button { top: 20px; right: 20px; background: linear-gradient(135deg, #e0aaff, #aa22ff); }
+  .next-button { top: clamp(10px, 2vh, 20px); right: clamp(10px, 2vh, 20px); background: linear-gradient(135deg, #e0aaff, #aa22ff); }
   #restart-button { top: 50%; left: 10%; transform: translateX(-50%); background: linear-gradient(135deg, #e0aaff, #aa22ff); }
-  .back-button { top: 20px; left: 20px; background: linear-gradient(135deg, #e0aaff, #aa22ff); }
+  .back-button { top: clamp(10px, 2vh, 20px); left: clamp(10px, 2vh, 20px); background: linear-gradient(135deg, #e0aaff, #aa22ff); }
   .next-button:active, #restart-button:active, .back-button:active { transform: scale(0.9) translateX(-50%); box-shadow: 0 2px 8px rgba(0,0,0,0.4); }
 
   #cloud1 { background-image: url('Nuvemprivada.png'); }
@@ -158,11 +160,11 @@
         }
 
         .lock-box input {
-            padding:0.7rem; font-size:1rem; margin-bottom:1rem;
-    width:80%; max-width:250px;
+            padding:clamp(0.5rem, 2vw, 0.7rem); font-size:clamp(0.9rem, 3vw, 1rem); margin-bottom:1rem;
+    width:100%; max-width:250px;
     border:3px solid #f2e2ff; border-radius:15px;
     outline:none; transition:0.3s; background-color:#f8f0ff;
-    text-align:center; color:#4a148c;
+    text-align:center; color:#4a148c; box-sizing: border-box;
         }
 
         .lock-box input:focus {
@@ -175,11 +177,11 @@
             font-weight: bold;
             cursor: pointer;
             width: 100%;
-            padding: 0.8rem;
+            padding: clamp(0.6rem, 2vw, 0.8rem);
             margin-top: 1rem;
             border-radius: 15px;
             border: none;
-            font-size: 1rem;
+            font-size: clamp(0.9rem, 3vw, 1rem);
             transition: transform 0.3s, box-shadow 0.3s;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
@@ -200,7 +202,7 @@
 <audio id="soundPhoto" src="robofoto.mp3"></audio>
 <audio id="soundGame" src="robojogo.mp3"></audio>
 
-<a href="jogos.html" class="back-button" aria-label="Voltar">⬅</a>
+<a href="Jogos.html" class="back-button" aria-label="Voltar">⬅</a>
 <button id="restart-button">⟳</button>
 
 <div id="game-layout">
@@ -330,6 +332,56 @@ items.forEach(item => {
   item.addEventListener('dragstart', e => {
     e.dataTransfer.setData('text/plain', item.id);
   });
+
+  // Touch support
+  item.addEventListener('touchstart', e => {
+    e.preventDefault();
+    draggedItem = item;
+  });
+});
+
+let draggedItem = null;
+let touchOffsetX, touchOffsetY;
+
+document.addEventListener('touchmove', e => {
+  if (!draggedItem) return;
+  e.preventDefault();
+  const touch = e.touches[0];
+  if (!touchOffsetX) {
+    const rect = draggedItem.getBoundingClientRect();
+    touchOffsetX = touch.clientX - rect.left;
+    touchOffsetY = touch.clientY - rect.top;
+  }
+  draggedItem.style.position = 'fixed';
+  draggedItem.style.left = (touch.clientX - touchOffsetX) + 'px';
+  draggedItem.style.top = (touch.clientY - touchOffsetY) + 'px';
+  draggedItem.style.zIndex = '1000';
+});
+
+document.addEventListener('touchend', e => {
+  if (!draggedItem) return;
+  e.preventDefault();
+  draggedItem.style.position = '';
+  draggedItem.style.left = '';
+  draggedItem.style.top = '';
+  draggedItem.style.zIndex = '';
+
+  const touch = e.changedTouches[0];
+  const elementsAtPoint = document.elementsFromPoint(touch.clientX, touch.clientY);
+  const cloud = elementsAtPoint.find(el => el.classList.contains('cloud'));
+  if (cloud) {
+    const id = draggedItem.id;
+    const step = sequence[currentStep];
+    if (clouds[step.cloud] === cloud && id === step.element) {
+      showGif(step.element, step.cloud);
+      currentStep++;
+      if (currentStep < sequence.length) showCurrentElement();
+      else showConfetti();
+    }
+  }
+  touchOffsetX = null;
+  touchOffsetY = null;
+  draggedItem = null;
 });
 
 clouds.forEach(cloud=>{
@@ -437,3 +489,77 @@ showCurrentElement();
 <script src="./register-sw.js"></script>
 </body>
 </html>
+
+<style>
+/* Responsive Media Queries for publicaeprivada.html */
+@media (max-width: 600px) {
+    body {
+        padding: 1rem;
+    }
+    
+    #game-layout {
+        grid-template-areas:
+          "items-container"
+          "cloud1"
+          "cloud2"
+          "gif1"
+          "gif2";
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1rem;
+        width: 100%;
+        max-width: none;
+    }
+    
+    #items-container {
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .item {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .cloud {
+        height: 120px;
+    }
+    
+    .gif-container img {
+        width: 100px;
+    }
+    
+    .next-button, #restart-button, .back-button {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        border-width: 2px;
+    }
+    
+    .lock-box {
+        padding: 20px 30px;
+        max-width: 90vw;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+    #game-layout {
+        width: 90%;
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+    
+    .item {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .cloud {
+        height: 130px;
+    }
+    
+    .gif-container img {
+        width: 120px;
+    }
+}
+</style>

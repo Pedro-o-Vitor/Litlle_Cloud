@@ -397,6 +397,16 @@
         width: 60px;
         height: 8px;
     }
+    .next-btn, .restart-btn, .back-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+        border-width: 1px;
+    }
+    .message {
+        font-size: 0.8rem;
+        padding: 5px 10px;
+    }
 }
     </style>
 </head>
@@ -759,10 +769,10 @@ nextBtnGlobal.addEventListener("click", () => {
     if (currentSlide + 1 < totalSlides) loadGame(currentSlide + 1); 
 });
 
-backBtnGlobal.addEventListener("click", () => { 
+backBtnGlobal.addEventListener("click", () => {
     try { sounds.click.play(); } catch(e){}
     if (currentSlide === 0) {
-        window.location.href = "jogos.html";
+        window.location.href = "Jogos.html";
     } else {
         loadGame(currentSlide - 1);
     }

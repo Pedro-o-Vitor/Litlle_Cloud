@@ -20,7 +20,7 @@
             justify-content: center; 
             align-items: center;
             min-height: 90vh;
-            padding: 2rem;
+            padding: clamp(1rem, 5vw, 2rem);
             text-align: center;
             overflow: hidden;
             position: relative;
@@ -28,7 +28,7 @@
 
         .play-button {
             background-color: #a3a7f8;
-            padding: 2.5rem;
+            padding: clamp(1.5rem, 6vw, 2.5rem);
             border-radius: 9999px;
             display: inline-flex;
             justify-content: center;
@@ -37,8 +37,9 @@
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
             cursor: pointer;
             position: absolute;
-            left: 53%;
-            top: 45%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
         }
 
         .play-button:hover {
@@ -47,8 +48,8 @@
         }
 
         .play-icon {
-            width: 60px;
-            height: 60px;
+            width: clamp(40px, 10vw, 60px);
+            height: clamp(40px, 10vw, 60px);
             fill: white;
             filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
         }
@@ -60,8 +61,8 @@
         /* Engrenagens */
         .gear {
             position: absolute;
-            width: 50%;
-            height: 50%;
+            width: clamp(30%, 50vw, 50%);
+            height: clamp(30%, 50vw, 50%);
             fill: rgb(86, 166, 241);
             opacity: 0.9;
             animation: spin 6s linear infinite;
@@ -70,19 +71,81 @@
         }
 
         .gear.left {
-            top: -10%;
-            left: -20%;
+            top: clamp(-20%, -10vh, -10%);
+            left: clamp(-30%, -15vw, -20%);
         }
 
         .gear.right {
-            top: -10%;
-            right: -20%;
+            top: clamp(-20%, -10vh, -10%);
+            right: clamp(-30%, -15vw, -20%);
             animation-direction: reverse;
         }
 
         @keyframes spin {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
+        }
+
+        /* Responsive Media Queries for index.html */
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem;
+                min-height: 100vh;
+            }
+            
+            .play-button {
+                padding: clamp(1rem, 8vw, 1.5rem);
+            }
+            
+            .play-icon {
+                width: clamp(30px, 8vw, 40px);
+                height: clamp(30px, 8vw, 40px);
+            }
+            
+            .gear {
+                width: clamp(40vw, 60vw, 40%);
+                height: clamp(40vw, 60vw, 40%);
+            }
+            
+            .gear.left {
+                top: 0;
+                left: 0;
+            }
+            
+            .gear.right {
+                top: 0;
+                right: 0;
+            }
+        }
+
+        @media (min-width: 601px) and (max-width: 900px) {
+            body {
+                padding: 1.5rem;
+            }
+            
+            .play-button {
+                padding: clamp(1.5rem, 5vw, 2rem);
+            }
+            
+            .play-icon {
+                width: clamp(45px, 6vw, 50px);
+                height: clamp(45px, 6vw, 50px);
+            }
+            
+            .gear {
+                width: clamp(40%, 45vw, 45%);
+                height: clamp(40%, 45vw, 45%);
+            }
+            
+            .gear.left {
+                top: -15%;
+                left: -25%;
+            }
+            
+            .gear.right {
+                top: -15%;
+                right: -25%;
+            }
         }
     </style>
 </head>
@@ -106,6 +169,6 @@
             <path d="M8 5v14l11-7z"/>
         </svg>
     </a>
-<script src="./register-sw.js"></script>
+    <script src="./register-sw.js"></script>
 </body>
 </html>
